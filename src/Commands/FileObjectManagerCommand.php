@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace RedFlag\FileObjectManager\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FileObjectManagerCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'file-object-manager';
 
     public $description = 'My command';
 

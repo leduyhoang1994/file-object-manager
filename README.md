@@ -1,75 +1,81 @@
-# :package_description
+# This is my package file-object-manager
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This repo can be used to scaffold a Laravel package. Follow these steps to get started:
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/red-flag/file-object-manager.svg?style=flat-square)](https://packagist.org/packages/red-flag/file-object-manager)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/red-flag/file-object-manager/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/red-flag/file-object-manager/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/red-flag/file-object-manager/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/red-flag/file-object-manager/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/red-flag/file-object-manager.svg?style=flat-square)](https://packagist.org/packages/red-flag/file-object-manager)
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Laravel package for managing file with ORM
 
-## Support us
+## Features
+- Advanced Upload with [Uppy](https://uppy.io/)
+- Support Storage drivers: s3, local
+- Improve upload speed with pre-signed url
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
+## Prerequisites
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+- PHP version: ^8.1
+- Laravel version: ^10
+- Database: Any
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
+composer require red-flag/file-object-manager
 ```
 
-You can publish and run the migrations with:
+1. Publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
+php artisan vendor:publish --tag="file-object-manager-config"
+```
+<i>View the config file for more information</i>
+
+2. Skip this step if you already have table for FileObject 
+- Publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="file-object-manager-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
+3. Publishing the assets
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
+php artisan vendor:publish --tag="file-object-manager-assets"
 ```
 
 ## Usage
 
-```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+1. Add js library into head tag
+
+```html
+<head>
+    ...
+    <script src="/vendor/file-object-manager/js/file-object-manager.js"></script>
+</head>
 ```
 
-## Testing
+2. Init File Object Manager UI
 
-```bash
-composer test
+```html
+<body>
+    ...
+    <div id="file-object-manager">
+
+    </div>
+    <script type="module">
+        const options = {}; // View document for more information
+        FileObjectManager.init('#file-object-manager', options);
+    </script>
+</body>
 ```
+
+## Documentation
+
+- [Document Link](https://wiki.onschool.edu.vn/display/UNI3/File+Object+Manager)
 
 ## Changelog
 
@@ -85,8 +91,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
+- [Red Flag](https://github.com/leduyhoang1994)
 
 ## License
 

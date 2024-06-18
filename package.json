@@ -1,0 +1,20 @@
+{
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack --watch --progress"
+    },
+    "dependencies": {
+        "@uppy/aws-s3": "^3.6.2",
+        "@uppy/compressor": "^1.1.4",
+        "@uppy/core": "^3.12.0",
+        "@uppy/dashboard": "^3.8.3",
+        "@uppy/remote-sources": "^1.2.0",
+        "style-loader": "^4.0.0"
+    },
+    "devDependencies": {
+        "css-loader": "^7.1.2",
+        "terser": "^5.31.1",
+        "webpack": "^5.92.0",
+        "webpack-cli": "^5.1.4"
+    }
+}
