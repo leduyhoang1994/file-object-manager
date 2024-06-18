@@ -8,7 +8,6 @@ $webPrefix = config('file-object-manager.web-route-prefix', '/file-object-manage
 $apiMiddlewares = config('file-object-manager.api-route-middlewares', []);
 $apiPrefix = config('file-object-manager.api-route-prefix', '/file-object-manager/api');
 
-
 /**
  * Web routes
  */
@@ -47,7 +46,7 @@ Route::middleware($apiMiddlewares)
 
             $fileName = $request->get('filename');
             $path = \RedFlag\FileObjectManager\Facades\FomStorage::getPath($fileName);
-            $extension = '.' . ltrim($request->get('ext'), '.');
+            $extension = '.'.ltrim($request->get('ext'), '.');
 
             $fileAttributes = [
                 'name' => $fileName,
@@ -69,7 +68,6 @@ Route::middleware($apiMiddlewares)
             return $res;
         });
 
-
         /**
          * Insecure path
          *
@@ -79,10 +77,10 @@ Route::middleware($apiMiddlewares)
             $file = $request->file('file');
             $fullPath = $request->get('path');
             $fileName = last(explode('/', $fullPath));
-            $path = rtrim($fullPath, '/' . $fileName);
+            $path = rtrim($fullPath, '/'.$fileName);
 
             $file->storeAs($path, $fileName, [
-                'disk' => 'local'
+                'disk' => 'local',
             ]);
 
             return response(null, 204);

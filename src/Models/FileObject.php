@@ -3,9 +3,7 @@
 namespace RedFlag\FileObjectManager\Models;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Integer;
 
 class FileObject extends Model implements FileObjectInterface
 {
@@ -48,7 +46,7 @@ class FileObject extends Model implements FileObjectInterface
 
     public function getFullPath(): string
     {
-        return "https://uni3-storage.onschool.edu.vn" . $this->getPath();
+        return 'https://uni3-storage.onschool.edu.vn'.$this->getPath();
     }
 
     public function getPath(): string
@@ -108,7 +106,7 @@ class FileObject extends Model implements FileObjectInterface
 
     public function getList($filters = [], $page = 1, $limit = null): LengthAwarePaginator
     {
-        if (!$limit) {
+        if (! $limit) {
             $limit = config('file-object-manager.default-query-list-options.limit', 15);
         }
 

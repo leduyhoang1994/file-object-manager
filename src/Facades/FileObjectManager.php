@@ -8,6 +8,7 @@ use RedFlag\FileObjectManager\Models\FileObjectInterface;
 
 /**
  * @see \RedFlag\FileObjectManager\FileObjectManager
+ *
  * @method static LengthAwarePaginator getList($filter, $page, $limit)
  * @method static FileObjectInterface getOne($id)
  * @method static FileObjectInterface createOne($attributes)

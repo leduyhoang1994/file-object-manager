@@ -27,12 +27,12 @@ return [
     ],
 
     'views' => [
-        'list' => 'file-object-manager::components.file-object-list-component'
+        'list' => 'file-object-manager::components.file-object-list-component',
     ],
 
     'storage_driver' => 's3', // s3, local
 
-    'storage_default_path' => function() {
-        return '/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
-    }
+    'storage_default_path' => function () {
+        return '/'.date('Y').'/'.date('m').'/'.date('d').'/';
+    },
 ];

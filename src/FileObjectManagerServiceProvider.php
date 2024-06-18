@@ -2,13 +2,12 @@
 
 namespace RedFlag\FileObjectManager;
 
+use RedFlag\FileObjectManager\Commands\FileObjectManagerCommand;
 use RedFlag\FileObjectManager\Components\FileObjectListComponent;
 use RedFlag\FileObjectManager\Components\FileObjectManagerComponent;
 use RedFlag\FileObjectManager\Components\FileObjectUploadComponent;
-use Spatie\LaravelPackageTools\Exceptions\InvalidPackage;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RedFlag\FileObjectManager\Commands\FileObjectManagerCommand;
 
 class FileObjectManagerServiceProvider extends PackageServiceProvider
 {
@@ -34,7 +33,7 @@ class FileObjectManagerServiceProvider extends PackageServiceProvider
             ->hasRoute('file-object-manager');
 
         $this->publishes([
-            $this->package->basePath('/../companion') => base_path("companion"),
+            $this->package->basePath('/../companion') => base_path('companion'),
         ], "{$this->packageView($this->package->viewNamespace)}-companion");
     }
 }

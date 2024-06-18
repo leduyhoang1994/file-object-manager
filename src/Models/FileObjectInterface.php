@@ -3,7 +3,6 @@
 namespace RedFlag\FileObjectManager\Models;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 interface FileObjectInterface
 {
@@ -11,7 +10,7 @@ interface FileObjectInterface
 
     public function getList($filters = [], $page = 0, $limit = null): LengthAwarePaginator;
 
-    public function createOne($attributes) : self;
+    public function createOne($attributes): self;
 
     public function deleteOne($id): void;
 

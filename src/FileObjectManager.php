@@ -3,7 +3,6 @@
 namespace RedFlag\FileObjectManager;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
 use RedFlag\FileObjectManager\Models\FileObjectInterface;
 
 class FileObjectManager

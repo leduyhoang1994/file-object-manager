@@ -3,7 +3,6 @@
 namespace RedFlag\FileObjectManager\Components;
 
 use Closure;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use RedFlag\FileObjectManager\Facades\FileObjectManager;
@@ -11,7 +10,9 @@ use RedFlag\FileObjectManager\Facades\FileObjectManager;
 class FileObjectListComponent extends Component
 {
     public int $page = 0;
+
     public int $limit = 0;
+
     public array $filters = [];
 
     /**
@@ -31,7 +32,7 @@ class FileObjectListComponent extends Component
     {
         $fileObjects = FileObjectManager::getList([], $this->page, $this->limit);
 
-//        $fileObjects->items()[rand(0, count($fileObjects->items()) - 1)]['is_disabled'] = true;
+        //        $fileObjects->items()[rand(0, count($fileObjects->items()) - 1)]['is_disabled'] = true;
 
         return view(config('file-object-manager.views.list'), compact('fileObjects'));
     }

@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Storage;
 
 class S3Storage implements StorageInterface
 {
-    protected function getDefaultBucket() {
+    protected function getDefaultBucket()
+    {
         return config('filesystems.disks.s3.bucket');
     }
 
@@ -15,7 +16,7 @@ class S3Storage implements StorageInterface
         $bucket = $bucket ?? $this->getDefaultBucket();
         $defaultPath = config('file-object-manager.storage_default_path')();
 
-        return '/' . $bucket . $defaultPath . $fileName;
+        return '/'.$bucket.$defaultPath.$fileName;
     }
 
     public function generateUploadLink($fileName, $bucket = null)
@@ -48,7 +49,7 @@ class S3Storage implements StorageInterface
             $expires
         );
 
-        $postObject->setFormInput('key', $path . $fileName);
+        $postObject->setFormInput('key', $path.$fileName);
 
         // Get attributes for the HTML form, for example, action, method, enctype.
         $formAttributes = $postObject->getFormAttributes();
@@ -60,7 +61,7 @@ class S3Storage implements StorageInterface
             'method' => $formAttributes['method'],
             'url' => $formAttributes['action'],
             'fields' => $formInputs,
-            'headers' => []
+            'headers' => [],
         ];
     }
 

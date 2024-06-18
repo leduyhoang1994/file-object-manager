@@ -10,7 +10,7 @@ class LocalStorage implements StorageInterface
     {
         $defaultPath = config('file-object-manager.storage_default_path')();
 
-        return $defaultPath . $fileName;
+        return $defaultPath.$fileName;
     }
 
     public function removeFile($path)
@@ -22,11 +22,11 @@ class LocalStorage implements StorageInterface
     {
         return [
             'method' => 'POST',
-            'url' => url(config('file-object-manager.api-route-prefix') . '/upload'),
+            'url' => url(config('file-object-manager.api-route-prefix').'/upload'),
             'fields' => [
                 'path' => $this->getPath($fileName),
             ],
-            'headers' => []
+            'headers' => [],
         ];
     }
 }
