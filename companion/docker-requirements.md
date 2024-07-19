@@ -1,5 +1,9 @@
 # Requirements for writing docker
 
+## Flow
+![image](https://github.com/user-attachments/assets/0ae70649-99b7-42f4-99a6-5fb600ad7745)
+
+
 ## Folder path
 1. docker/nginx.conf
 2. ./Dockerfile
